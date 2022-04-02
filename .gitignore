@@ -1,4 +1,9 @@
 .vscode/*
 .python-version
-*/__pycache__
+**/__pycache__
 db.sqlite*
+*.py[cod]
+
+*.log
+*.pot
+local_settings.py
