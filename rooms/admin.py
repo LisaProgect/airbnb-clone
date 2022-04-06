@@ -6,6 +6,14 @@ from .models import Room, RoomType, Facility, HouseRule, Amenity, Photo
 class ItemAdmin(admin.ModelAdmin):
     """Item Admin Definition"""
 
+    list_display = (
+        "name",
+        "use_by",
+    )
+
+    def use_by(self, obj):
+        return obj.rooms.count()
+
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
@@ -69,6 +77,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "host",
         "room_types",
+        "count_photos",
     )
 
     list_filter = (
@@ -88,3 +97,6 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     search_fields = ("city", "country", "^host__username")
+
+    def count_photos(self, obj):
+        return obj.photos.count()
