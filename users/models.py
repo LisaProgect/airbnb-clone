@@ -33,7 +33,7 @@ class User(AbstractUser):
         (CURRENCY_UAH, "UAH"),
     )
 
-    avatar = models.ImageField(blank=True)
+    avatar = models.ImageField(upload_to="avatars", blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, blank=True, max_length=10)
     bio = models.TextField(blank=True)
     birthday = models.DateField(blank=True, null=True)

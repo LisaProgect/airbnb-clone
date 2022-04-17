@@ -7,3 +7,4 @@ db.sqlite*
 *.log
 *.pot
 local_settings.py
+uploads/
