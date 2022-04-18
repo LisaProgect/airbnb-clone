@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from .models import Room, RoomType, Facility, HouseRule, Amenity, Photo
 
 
@@ -19,10 +20,27 @@ class ItemAdmin(admin.ModelAdmin):
 class PhotoAdmin(admin.ModelAdmin):
     """Photo Admin Definition"""
 
+    list_display = (
+        "__str__",
+        "get_thumbnail",
+    )
+
+    @admin.display(description="Thumbnail")
+    def get_thumbnail(self, obj):
+        return mark_safe(f'<img src={obj.file.url} width="50px"/>')
+
+
+class PhotoInline(admin.TabularInline):
+    """Photo Inline Definition"""
+
+    model = Photo
+
 
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
     """Room Admin Definition"""
+
+    inlines = (PhotoInline,)
 
     fieldsets = (
         (
