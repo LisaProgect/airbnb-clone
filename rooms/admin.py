@@ -68,7 +68,7 @@ class RoomAdmin(admin.ModelAdmin):
             "Spaces",
             {
                 "classes": ("collapse",),
-                "fields": ("room_types", "beds", "bedrooms", "bath", "guests"),
+                "fields": ("room_type", "beds", "bedrooms", "baths", "guests"),
             },
         ),
         (
@@ -89,12 +89,12 @@ class RoomAdmin(admin.ModelAdmin):
         "guests",
         "beds",
         "bedrooms",
-        "bath",
+        "baths",
         "check_in",
         "check_out",
         "instant_book",
         "host",
-        "room_types",
+        "room_type",
         "count_photos",
         "total_rating",
     )
@@ -117,5 +117,6 @@ class RoomAdmin(admin.ModelAdmin):
 
     search_fields = ("city", "country", "^host__username")
 
+    @admin.display(description="Photo count")
     def count_photos(self, obj):
         return obj.photos.count()

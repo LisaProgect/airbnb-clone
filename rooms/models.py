@@ -68,14 +68,14 @@ class Room(core_models.TimeStampedModel):
     guests = models.IntegerField()
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
-    bath = models.IntegerField()
+    baths = models.IntegerField()
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
     host = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="rooms"
     )
-    room_types = models.ForeignKey(
+    room_type = models.ForeignKey(
         "RoomType", on_delete=models.SET_NULL, null=True, related_name="rooms"
     )
     amenities = models.ManyToManyField("Amenity", blank=True, related_name="rooms")
@@ -92,6 +92,8 @@ class Room(core_models.TimeStampedModel):
     def total_rating(self):
         all_reviews = self.reviews.all()
         all_ratings = 0
-        for review in all_reviews:
-            all_ratings += review.rating_average()
-        return round(all_ratings / len(all_reviews), 2)
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                all_ratings += review.rating_average()
+            return round(all_ratings / len(all_reviews), 2)
+        return 0
