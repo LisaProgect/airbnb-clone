@@ -1,9 +1,11 @@
 from django.core.management.base import BaseCommand
 from rooms.models import Amenity
 
+NAME = "amenities"
+
 
 class Command(BaseCommand):
-    help = "create faker amenities for data base"
+    help = f"create faker {NAME} for data base"
 
     def handle(self, *args, **options):
         amenities = [
@@ -54,4 +56,4 @@ class Command(BaseCommand):
 
             Amenity.objects.create(name=amenity)
 
-        self.stdout.write(self.style.SUCCESS("Successfully created amenities"))
+        self.stdout.write(self.style.SUCCESS(f"Successfully created {NAME}"))
