@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from rooms.models import Room
 
-# Create your views here.
+
+class HomeView(ListView):
+    """HomeView Definition"""
+
+    template_name = "home.html"
+    model = Room
+    paginate_by = 10
+    paginate_orphans = 5
+    ordering = "created"
