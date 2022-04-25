@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{object.name}}</h1>
+<p>{{object.description}}</p>
+<p>By: {{object.host.username}}</p>
+<p>Amenities</p>
+<ul>
+    {% for a in object.amenities.all %}
+    
+    <li>{{a}}</li>
+    {% endfor %}
+</ul>
+<p>Facilities</p>
+<ul>
+    {% for f in object.facilities.all %}
+    
+    <li>{{f}}</li>
+    {% endfor %}
+</ul>
+<p>House rules</p>
+<ul>
+    {% for r in object.house_rules.all %}
+    
+    <li>{{r}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

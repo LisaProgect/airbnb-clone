@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
     {% for room in object_list %} 
-        <p> {{room.name}} </p> <span> {{room.price}} </span>
+        <a href="{% url 'rooms:detail' room.pk %}">
+            <p> {{room.name}} </p>
+        </a>
+        <span> {{room.price}} </span>
     {% endfor %}
     <p>
         {% if page_obj.has_previous %}
