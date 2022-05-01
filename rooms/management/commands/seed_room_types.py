@@ -14,6 +14,10 @@ class Command(BaseCommand):
             "Queen",
             "King",
             "Twin",
+            "Entire place",
+            "Private room",
+            "Shared room",
+            "Hotel room",
         ]
         for room_type in room_types:
 
