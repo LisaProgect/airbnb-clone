@@ -8,3 +8,4 @@ db.sqlite*
 *.pot
 local_settings.py
 uploads/
+.env

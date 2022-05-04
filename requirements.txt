@@ -21,3 +21,4 @@ sqlparse==0.4.2
 tomli==2.0.1
 toposort==1.7
 typing_extensions==4.1.1
+django-dotenv
