@@ -35,11 +35,6 @@ class SingUpView(FormView):
     template_name = "users/signup.html"
     form_class = SingUpForm
     success_url = reverse_lazy("core:home")
-    initial = {
-        "first_name": "Lisa",
-        "last_name": "LastName",
-        "email": "lisalis@vivaldi.net",
-    }
 
     def form_valid(self, form):
         form.save()
@@ -78,7 +73,6 @@ def github_login(request):
         },
         safe=":/,",
     )
-    print(query_string)
     return redirect(f"https://github.com/login/oauth/authorize?{query_string}")
 
 
