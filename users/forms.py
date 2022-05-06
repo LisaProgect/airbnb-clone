@@ -1,5 +1,4 @@
 from django import forms
-from django.core.validators import validate_email
 from django.contrib.auth.forms import UserCreationForm
 from users.models import User
 
@@ -27,8 +26,4 @@ class LoginForm(forms.Form):
 
 class SingUpForm(UserCreationForm):
 
-    email = forms.EmailField(validators=[validate_email])
-
-    class Meta:
-        model = User
-        fields = UserCreationForm.Meta.fields + ("email",)
+    username = forms.EmailField(label="Email")

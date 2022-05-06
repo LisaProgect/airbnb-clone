@@ -3,6 +3,7 @@
 **/__pycache__
 db.sqlite*
 *.py[cod]
+node_modules/
 
 *.log
 *.pot
