@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Cloning Airbnb on python",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css": "gulp"
+    "dev": "postcss assets/css/styles.css -o static/css/styles.css --watch",
+    "prod": "cross-env NODE_ENV=production postcss assets/css/styles.css -o static/css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,12 @@
   "homepage": "https://github.com/LisaProgect/airbnb-clone#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.7",
-    "gulp": "^4.0.2",
-    "gulp-csso": "^4.0.1",
-    "gulp-postcss": "^9.0.1",
-    "gulp-sass": "^5.1.0",
-    "node-sass": "^7.0.1",
-    "sass": "^1.51.0",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.1.7",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
+    "postcss-nesting": "^10.1.4",
     "tailwindcss": "^3.0.24"
   }
 }
