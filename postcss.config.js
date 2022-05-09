@@ -7,4 +7,3 @@ module.exports = {
     ...(process.env.NODE_ENV === "production" ? { cssnano: {} } : {}),
   },
 };
-console.log(process.env.NODE_ENV);

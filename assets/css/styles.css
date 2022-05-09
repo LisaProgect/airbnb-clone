@@ -2,3 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.nav_link {
+  @apply ml-8 border-b-2 border-white hover:border-gray-600 h-full flex items-center;
+}
+.nav_link a {
+  @apply py-10 px-5;
+}
+.btn {
+  @apply text-center rounded-md py-5 font-light text-lg w-full transition-all duration-300;
+}
+
+.btn-link {
+  @apply text-center py-3 rounded-lg font-light text-lg w-full text-white bg-red-500;
+}
+
+input,
+textarea,
+select {
+  @apply rounded-sm py-5 font-light text-lg w-full text-left border border-gray-600 px-5 focus:outline-none focus:border-teal-500;
+}
+
+form .input {
+  @apply mb-3 w-full;
+}
+form .input.has_error input {
+  @apply bg-red-200 border-gray-600 focus:border-gray-600;
+}
