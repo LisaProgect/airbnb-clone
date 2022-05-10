@@ -23,6 +23,13 @@ class LoginView(FormView):
 
         if user is not None:
             login(request=self.request, user=user)
+            messages.success(
+                request=self.request, message=f"Welcome back {user.first_name}"
+            )
+        else:
+            messages.error(
+                request=self.request, message="Somthing was wrong, try log in again"
+            )
         return super().form_valid(form)
 
 
@@ -39,12 +46,16 @@ class SingUpView(FormView):
     def form_valid(self, form):
         form.save()
         email = form.cleaned_data.get("email")
-        password = form.cleaned_data.get("password")
+        password = form.cleaned_data.get("password1")
         user = authenticate(request=self.request, username=email, password=password)
 
         if user is not None:
             login(request=self.request, user=user)
-        user.verify_email(uri=self.request.build_absolute_uri("/"))
+            user.verify_email(uri=self.request.build_absolute_uri("/"))
+            messages.success(
+                request=self.request,
+                message="You are success Sing up. Please verify your email",
+            )
         return super().form_valid(form)
 
 

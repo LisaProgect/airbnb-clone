@@ -28,3 +28,38 @@ form .input {
 form .input.has_error input {
   @apply bg-red-200 border-gray-600 focus:border-gray-600;
 }
+
+@keyframes messageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+.message {
+  animation: messageFadeIn 5s ease-in-out forwards;
+}
+.message.error {
+  @apply bg-red-600;
+}
+.message.info {
+  @apply bg-blue-500;
+}
+.message.success {
+  @apply bg-green-500;
+}
+.message.warning {
+  @apply bg-yellow-400;
+}

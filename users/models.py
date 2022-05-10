@@ -64,6 +64,7 @@ class User(AbstractUser):
     )
 
     def verify_email(self, uri):
+        """If the email isn't verify, send mail with secret cod for verification."""
         if self.email_verified is False:
             secret = uuid.uuid4().hex[:20]
             self.email_secret = secret
