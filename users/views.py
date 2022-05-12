@@ -3,14 +3,17 @@ import requests
 from urllib.parse import urlencode
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView, UpdateView
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from users.forms import LoginForm, SingUpForm
 from users.models import User
+from users.mixins import LoggedOutOnlyView
 
 
-class LoginView(FormView):
+class LoginView(LoggedOutOnlyView, FormView):
     form_class = LoginForm
     success_url = reverse_lazy("core:home")
     template_name = "users/login.html"
@@ -165,3 +168,48 @@ def github_callback(request):
     except GithubException as e:
         messages.error(request=request, message=e)
         return redirect(reverse("core:home"))
+
+
+class ProfileDetailView(DetailView):
+    model = User
+    context_object_name = "user_obj"
+
+
+class ProfileUpdateView(SuccessMessageMixin, UpdateView):
+    model = User
+    template_name = "users/update_profile.html"
+    fields = [
+        "first_name",
+        "last_name",
+        "avatar",
+        "gender",
+        "bio",
+        "birthday",
+        "language",
+        "currency",
+    ]
+
+    success_message = "Update successful"
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        for _, field in form.fields.items():
+            field.widget.attrs["placeholder"] = field.label
+        return form
+
+
+class UpdatePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = "users/update-password.html"
+    success_message = "Update successful"
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        for _, field in form.fields.items():
+            field.widget.attrs["placeholder"] = field.label
+        return form
+
+    def get_success_url(self):
+        return self.request.user.get_absolute_url()
