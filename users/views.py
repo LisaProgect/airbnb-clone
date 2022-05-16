@@ -10,12 +10,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from users.forms import LoginForm, SingUpForm
 from users.models import User
-from users.mixins import LoggedOutOnlyView
+from users.mixins import LoggedInOnlyView, LoggedOutOnlyView, EmailLoginOnlyView
 
 
 class LoginView(LoggedOutOnlyView, FormView):
     form_class = LoginForm
-    success_url = reverse_lazy("core:home")
     template_name = "users/login.html"
 
     def form_valid(self, form):
@@ -34,6 +33,13 @@ class LoginView(LoggedOutOnlyView, FormView):
                 request=self.request, message="Somthing was wrong, try log in again"
             )
         return super().form_valid(form)
+
+    def get_success_url(self):
+        next_arg = self.request.GET.get("next")
+        if next_arg is not None:
+            return next_arg
+        else:
+            return reverse("core:home")
 
 
 def logout_user(request):
@@ -175,7 +181,7 @@ class ProfileDetailView(DetailView):
     context_object_name = "user_obj"
 
 
-class ProfileUpdateView(SuccessMessageMixin, UpdateView):
+class ProfileUpdateView(LoggedInOnlyView, SuccessMessageMixin, UpdateView):
     model = User
     template_name = "users/update_profile.html"
     fields = [
@@ -201,7 +207,9 @@ class ProfileUpdateView(SuccessMessageMixin, UpdateView):
         return form
 
 
-class UpdatePasswordView(SuccessMessageMixin, PasswordChangeView):
+class UpdatePasswordView(
+    LoggedInOnlyView, EmailLoginOnlyView, SuccessMessageMixin, PasswordChangeView
+):
     template_name = "users/update-password.html"
     success_message = "Update successful"
 
