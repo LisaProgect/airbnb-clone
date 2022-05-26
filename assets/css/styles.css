@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 .nav_link {
   @apply ml-8 border-b-2 border-white hover:border-gray-600 h-full flex items-center;
@@ -63,3 +62,14 @@ form .input.has_error input {
 .message.warning {
   @apply bg-yellow-400;
 }
+.border-section {
+  @apply border-b border-gray-400 pb-8 mt-8;
+}
+.cal-grid {
+  @apply grid grid-cols-7 gap-2 justify-items-center;
+}
+
+.cal-number {
+  @apply w-full text-center rounded p-1 cursor-pointer;
+}
+@tailwind utilities;

@@ -4,10 +4,11 @@ from urllib.parse import urlencode
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import FormView, DetailView, UpdateView
-from django.contrib.auth.views import PasswordChangeView
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
 from users.forms import LoginForm, SingUpForm
 from users.models import User
 from users.mixins import LoggedInOnlyView, LoggedOutOnlyView, EmailLoginOnlyView
@@ -221,3 +222,13 @@ class UpdatePasswordView(
 
     def get_success_url(self):
         return self.request.user.get_absolute_url()
+
+
+@login_required(login_url="/users/login/")
+def switch_hosting(request):
+    print(request.META.get("HTTP_REFERER"))
+    try:
+        del request.session["is_hosting"]
+    except KeyError:
+        request.session["is_hosting"] = True
+    return redirect(request.META.get("HTTP_REFERER"))

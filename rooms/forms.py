@@ -1,6 +1,6 @@
 from django import forms
 from django_countries.fields import CountryField
-from rooms.models import Facility, RoomType, Amenity
+from rooms.models import Facility, RoomType, Amenity, Photo, Room
 
 
 class SearchForm(forms.Form):
@@ -26,3 +26,39 @@ class SearchForm(forms.Form):
         queryset=Facility.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
+
+
+class CreatePhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        fields = (
+            "caption",
+            "file",
+        )
+
+    def save(self, pk, commit=True):
+        photo = super().save(commit=False)
+        room = Room.objects.get(pk=pk)
+        photo.room = room
+        if commit:
+            photo.save()
+        return photo
+
+
+class CreateRoomForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["check_in"].widget.attrs["placeholder"] = "00:00:00"
+        self.fields["check_out"].widget.attrs["placeholder"] = "00:00:00"
+
+    class Meta:
+        model = Room
+        exclude = ["host"]
+
+    def save(self, user, commit=True):
+        room = super().save(commit=False)
+        room.host = user
+        if commit:
+            room.save()
+            self.save_m2m()
+        return room

@@ -9,6 +9,7 @@ from users.views import (
     github_login,
     logout_user,
     complete_verification,
+    switch_hosting,
 )
 
 app_name = "users"
@@ -22,5 +23,6 @@ urlpatterns = [
     path("verify/<str:key>/", complete_verification, name="complete-verification"),
     path("update-profile/", ProfileUpdateView.as_view(), name="update"),
     path("update-password/", UpdatePasswordView.as_view(), name="password"),
+    path("switch-hosting/", switch_hosting, name="switch-hosting"),
     path("<int:pk>/", ProfileDetailView.as_view(), name="profile"),
 ]
