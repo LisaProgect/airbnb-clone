@@ -7,10 +7,18 @@
         <span>&copy; 2019 Nomad Coders. {% trans "All rights reserved" %}.</span>
     </div>
     <div class="mt-10 flex">
-        {% get_current_language as LANGUAGE_CODE %}
-        <select class="w-1/5 h-8" id="js-lang">
-            <option value="en" {% if LANGUAGE_CODE == 'en' %} selected {% endif %}>English</option>
-            <option value="es" {% if LANGUAGE_CODE == 'es' %} selected {% endif %}>Spanish</option>
-        </select>
+        <form action="{% url 'set_language' %}" method="post" id="form_lang" class="w-full">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" class="w-1/6 h-8" id="js-lang">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                </option>
+                {% endfor %}
+            </select>
+        </form>
     </div>
 </footer>

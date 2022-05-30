@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block page_title %}Not found page{% endblock page_title %}
+{% load i18n %}
+{% block page_title %}{% trans "Not found page" %}{% endblock page_title %}
 {% block content %}
 <h1>404</h1>
 {% endblock content %}

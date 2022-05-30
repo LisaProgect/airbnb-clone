@@ -226,7 +226,6 @@ class UpdatePasswordView(
 
 @login_required(login_url="/users/login/")
 def switch_hosting(request):
-    print(request.META.get("HTTP_REFERER"))
     try:
         del request.session["is_hosting"]
     except KeyError:

@@ -1,4 +1,5 @@
-<h4>Hello !</h4>
-<span>Please take a moment to confirm your account.
-    <a href="{{ uri|slice:':-1' }}{% url 'users:complete-verification' key=secret %}">Confirm your account</a>
+{% load i18n %}
+<h4>{% trans "Hello!" %}</h4>
+<span>{% trans "Please take a moment to confirm your account." %}
+    <a href="{{ uri|slice:':-1' }}{% url 'users:complete-verification' key=secret %}">{% trans "Confirm your account" %}</a>
 </span>

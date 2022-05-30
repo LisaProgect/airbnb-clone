@@ -1,0 +1,258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-30 14:47+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: config/settings.py:167
+msgid "Ukraine"
+msgstr "Україна"
+
+#: config/settings.py:168
+msgid "English"
+msgstr "англійська"
+
+#: templates/404.html:3
+msgid "Not found page"
+msgstr "Сторінка не знайдена"
+
+#: templates/emails/verify_email.html:2
+msgid "Hello!"
+msgstr "Привіт!"
+
+#: templates/emails/verify_email.html:3
+msgid "Please take a moment to confirm your account."
+msgstr "Будь ласка, знайдіть хвилинку, щоб підтвердити свій обліковий запис."
+
+#: templates/emails/verify_email.html:4
+msgid "Confirm your account"
+msgstr "Підтвердьте свій обліковий запис"
+
+#: templates/home.html:4
+msgid "Home"
+msgstr "Додому"
+
+#: templates/home.html:26
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "Сторінка %(current_page)s із %(total_pages)s"
+
+#: templates/mixins/room_card.html:8
+msgid "Superhost"
+msgstr "Супергосподар"
+
+#: templates/partials/footer.html:5
+msgid "Please don't copy us."
+msgstr "Будь ласка, не копіюйте нас."
+
+#: templates/partials/footer.html:7
+msgid "All rights reserved"
+msgstr "Всі права захищені"
+
+#: templates/partials/nav.html:8
+msgid "Stop hosting"
+msgstr "Зупинити хостинг"
+
+#: templates/partials/nav.html:10
+msgid "Start hosting"
+msgstr "Почати хостинг"
+
+#: templates/partials/nav.html:15 templates/rooms/room_create.html:5
+#: templates/rooms/room_create.html:15
+msgid "Create Room"
+msgstr "Створити кімнату"
+
+#: templates/partials/nav.html:17
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/partials/nav.html:18
+msgid "Log out"
+msgstr "Вийти"
+
+#: templates/partials/nav.html:21 templates/users/signup.html:14
+msgid "Log in"
+msgstr "Увійти"
+
+#: templates/partials/nav.html:22
+msgid "Sing up"
+msgstr "заспівай"
+
+#: templates/partials/social_login.html:4
+msgid "Continue with Github"
+msgstr "Продовжити з Github"
+
+#: templates/partials/social_login.html:10
+msgid "or"
+msgstr "або"
+
+#: templates/reservations/detail.html:5
+msgid "Reservation"
+msgstr "Бронювання"
+
+#: templates/reservations/detail.html:32
+msgid "Contact your Airbnb Host"
+msgstr "Зв'яжіться зі своїм хостом Airbnb"
+
+#: templates/reservations/detail.html:41
+msgid "Write your review"
+msgstr "Напишіть свій відгук"
+
+#: templates/reservations/detail.html:45
+msgid "Submit Review"
+msgstr "Надіслати відгук"
+
+#: templates/reservations/detail.html:49
+msgid "Cancel Reservation"
+msgstr "Скасувати бронювання"
+
+#: templates/reservations/detail.html:51
+msgid "Confirm Reservation"
+msgstr "Підтвердити бронювання"
+
+#: templates/rooms/photo_create.html:5 templates/rooms/photo_create.html:15
+msgid "Upload photo"
+msgstr "Завантажити фото"
+
+#: templates/rooms/photo_edit.html:5 templates/rooms/photo_edit.html:15
+msgid "Update photo"
+msgstr "Оновити фото"
+
+#: templates/rooms/room_detail.html:33
+msgid "Remove from Favourites"
+msgstr "Видалити з вибраного"
+
+#: templates/rooms/room_detail.html:35
+msgid "Save to Favourites"
+msgstr "Зберегти у вибране"
+
+#: templates/rooms/room_detail.html:40
+msgid "bed"
+msgstr "ліжко"
+
+#: templates/rooms/room_detail.html:41
+msgid "bedroom"
+msgstr "спальня"
+
+#: templates/rooms/room_detail.html:42
+msgid "bath"
+msgstr "ванна"
+
+#: templates/rooms/room_detail.html:43
+msgid "guest"
+msgstr "гість"
+
+#: templates/rooms/room_detail.html:49
+msgid "Amenities"
+msgstr "Зручності"
+
+#: templates/rooms/room_detail.html:55
+msgid "Facilities"
+msgstr "Послуги"
+
+#: templates/rooms/room_detail.html:61
+msgid "House Rules"
+msgstr "Побутовий порядок"
+
+#: templates/rooms/room_detail.html:67
+msgid "Reviews"
+msgstr "Огляди"
+
+#: templates/rooms/room_detail.html:76
+msgid "review"
+msgstr "огляд"
+
+#: templates/rooms/room_detail.html:99
+msgid "Edit Room"
+msgstr "Редагувати кімнату"
+
+#: templates/rooms/room_edit.html:5
+msgid "Update Room"
+msgstr "Оновлення кімнати"
+
+#: templates/rooms/room_edit.html:15
+msgid "Update room"
+msgstr "Оновити кімнату"
+
+#: templates/rooms/room_edit.html:18
+msgid "Edit Photos"
+msgstr "Редагувати фотографії"
+
+#: templates/rooms/room_photos.html:15
+msgid "Upload Photo"
+msgstr "Завантажити фото"
+
+#: templates/rooms/room_photos.html:25
+msgid "Edit"
+msgstr "Редагувати"
+
+#: templates/rooms/room_photos.html:26
+msgid "Delete"
+msgstr "Видалити"
+
+#: templates/rooms/room_photos.html:32
+msgid "Back to edit room"
+msgstr "Назад до редагування кімнати"
+
+#: templates/rooms/search.html:3 templates/rooms/search.html:6
+#: templates/rooms/search.html:12
+msgid "Search"
+msgstr "Пошук"
+
+#: templates/rooms/search.html:16
+msgid "Results:"
+msgstr "Результати:"
+
+#: templates/users/login.html:3
+msgid "Login"
+msgstr "Вхід"
+
+#: templates/users/login.html:15
+msgid "Don't have an account?"
+msgstr "Немає облікового запису?"
+
+#: templates/users/login.html:16 templates/users/signup.html:3
+msgid "Sign up"
+msgstr "Зареєструватися"
+
+#: templates/users/signup.html:13
+msgid "Have an account?"
+msgstr "Маєш обліковий запис?"
+
+#: templates/users/update-password.html:5
+#: templates/users/update-password.html:15
+msgid "Update Password"
+msgstr "Оновити пароль"
+
+#: templates/users/update_profile.html:5
+msgid "Update Profile"
+msgstr "Оновити профіль"
+
+#: templates/users/update_profile.html:15
+msgid "Update profile"
+msgstr "Оновити профіль"
+
+#: templates/users/update_profile.html:19
+msgid "Change Password"
+msgstr "Змінити пароль"
+
+#: templates/users/user_detail.html:24
+msgid "Edit Profile"
+msgstr "Редагувати профіль"

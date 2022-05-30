@@ -1,18 +1,19 @@
 {% extends "base.html" %}
-{% block page_title %}Search{% endblock page_title %}
+{% load i18n %}
+{% block page_title %}{% trans "Search" %}{% endblock page_title %}
 {% block search_bar %}{% endblock search_bar %}
 {% block content %}
-<h2>Search</h2>
+<h2>{% trans "Search" %}</h2>
 
 
 
 <form action="{% url 'rooms:search' %}" method="get">
     {{form.as_p}}
-    <button type="submit">Search</button>
+    <button type="submit">{% trans "Search" %}</button>
 </form>
 
 
-<h3>Results:</h3>
+<h3>{% trans "Results:" %}</h3>
 {% for room in rooms %}
 <div>
     <p>{{room.name}}</p>

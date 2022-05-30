@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block page_title %}
 {{user_obj.first_name}}'s Profile
 {% endblock page_title %}
@@ -21,7 +21,7 @@
         <span class="text-lg mb-5">{{user_obj.bio}}</span>
 
         {% if user == user_obj %}
-        <a href="{% url 'users:update' %}" class="btn-link">Edit Profile</a>
+        <a href="{% url 'users:update' %}" class="btn-link">{% trans "Edit Profile" %}</a>
         {% endif %}
 
     </div>

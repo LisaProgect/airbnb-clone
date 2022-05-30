@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,6 +61,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -157,3 +159,11 @@ EMAIL_PORT = "587"
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get("MAIL_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
+# Locale
+LOCALE_PATHS = (BASE_DIR.joinpath("locale"),)
+
+LANGUAGES = [
+    ("uk", _("Ukraine")),
+    ("en", _("English")),
+]
