@@ -665,6 +665,10 @@ form .input.has_error input:focus {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
 }
+.-mx-40 {
+  margin-left: -10rem;
+  margin-right: -10rem;
+}
 .mt-24 {
   margin-top: 6rem;
 }
