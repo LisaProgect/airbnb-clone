@@ -6,6 +6,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.html import strip_tags
 from django.template.loader import render_to_string
+from core.managers import CustomUserManager
 
 
 class User(AbstractUser):
@@ -63,6 +64,7 @@ class User(AbstractUser):
     login_method = models.CharField(
         choices=LOGIN_CHOICES, blank=True, max_length=20, default=LOGIN_EMAIL
     )
+    objects = CustomUserManager()
 
     def get_absolute_url(self):
         return reverse("users:profile", kwargs={"pk": self.pk})
